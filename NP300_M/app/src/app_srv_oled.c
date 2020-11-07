@@ -40,7 +40,6 @@ bool app_srv_dispaly_init(void)
 
 bool app_srv_display_state(app_display_message_e e_dispaly)
 {
-  app_srv_sample_data_t sample_data = {0};
   switch(e_dispaly){
     case e_display_bat:
     {
@@ -50,6 +49,7 @@ bool app_srv_display_state(app_display_message_e e_dispaly)
       break;
     case e_display_sample:
     {
+      app_srv_sample_data_t sample_data = {0};
       app_srv_sample_data_get(&sample_data);
       app_drv_oled_show_char_string(e_char_1206, 10, 4, "%02d.%02d",sample_data.sample_temp / 100, sample_data.sample_temp % 100);
       app_drv_oled_show_chinese(e_hz_1206, 40, 4, 9);

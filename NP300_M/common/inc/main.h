@@ -28,7 +28,6 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include <stdbool.h>
 #include "stm32l4xx_hal.h"
 #include "stm32l4xx_ll_adc.h"
 #include "stm32l4xx_ll_dma.h"
@@ -49,6 +48,7 @@ extern "C" {
 #include "stm32l4xx_ll_tim.h"
 #include "stm32l4xx_ll_usart.h"
 #include "stm32l4xx_ll_gpio.h"
+#include "os_types.h"
 
 void Error_Handler(void);
 

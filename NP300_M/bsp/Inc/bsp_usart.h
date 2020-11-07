@@ -26,8 +26,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-typedef void (*bsp_uart_callback)(void);
-
 typedef enum
 {
 	e_uart1_idx = 0,
@@ -49,7 +47,7 @@ typedef enum
 	e_uart_rate_max,
 }bsp_uart_baud_rate_e;
 
-bool bsp_uart_init(bsp_uart_idx_e idx, bsp_uart_baud_rate_e rate, bsp_uart_callback back);
+bool bsp_uart_init(bsp_uart_idx_e idx, bsp_uart_baud_rate_e rate, func_cb_void back);
 bool bsp_uart_deinit(bsp_uart_idx_e idx);
 
 

@@ -70,10 +70,10 @@ static const bsp_uart_config_t uart_config_array[e_uart_max_idx] =
 };
 
 /*USART 中断回调函数*/
-static bsp_uart_callback  uart_callback_arry[e_uart_max_idx] = {NULL};
+static func_cb_void  uart_callback_arry[e_uart_max_idx] = {NULL};
 
 /* USART init function */
-bool bsp_uart_init(bsp_uart_idx_e idx, bsp_uart_baud_rate_e rate, bsp_uart_callback back)
+bool bsp_uart_init(bsp_uart_idx_e idx, bsp_uart_baud_rate_e rate, func_cb_void cb)
 { 
   LL_USART_InitTypeDef USART_InitStruct = {0};
   LL_GPIO_InitTypeDef GPIO_InitStruct   = {0};
@@ -108,7 +108,7 @@ bool bsp_uart_init(bsp_uart_idx_e idx, bsp_uart_baud_rate_e rate, bsp_uart_callb
   /* USART interrupt Init */
   NVIC_SetPriority(uart_config_array[idx].bsp_uart_irq_e, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
   NVIC_EnableIRQ(uart_config_array[idx].bsp_uart_irq_e);
-  uart_callback_arry[idx] = back;
+  uart_callback_arry[idx] = cb;
 #endif
   
   USART_InitStruct.BaudRate 						= uart_baud_rate[rate];
