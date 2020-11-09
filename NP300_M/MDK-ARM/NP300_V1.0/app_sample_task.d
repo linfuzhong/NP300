@@ -4,14 +4,13 @@
 .\np300_v1.0\app_sample_task.o: ..\bsp\Inc\RTE_Components.h
 .\np300_v1.0\app_sample_task.o: ..\os\include\rtdebug.h
 .\np300_v1.0\app_sample_task.o: ..\os\include\rtdef.h
-.\np300_v1.0\app_sample_task.o: D:\Program Files\MDK5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\np300_v1.0\app_sample_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 .\np300_v1.0\app_sample_task.o: ..\os\include\rtservice.h
 .\np300_v1.0\app_sample_task.o: ..\os\include\rtthread.h
 .\np300_v1.0\app_sample_task.o: ..\os\include\rtm.h
 .\np300_v1.0\app_sample_task.o: ..\os\components\finsh\finsh_api.h
 .\np300_v1.0\app_sample_task.o: ..\bsp\Inc\bsp_log.h
 .\np300_v1.0\app_sample_task.o: ..\common\inc\main.h
-.\np300_v1.0\app_sample_task.o: D:\Program Files\MDK5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\np300_v1.0\app_sample_task.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h
 .\np300_v1.0\app_sample_task.o: ..\common\inc\stm32l4xx_hal_conf.h
 .\np300_v1.0\app_sample_task.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h
@@ -19,7 +18,7 @@
 .\np300_v1.0\app_sample_task.o: ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h
 .\np300_v1.0\app_sample_task.o: ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h
 .\np300_v1.0\app_sample_task.o: ../Drivers/CMSIS/Include/core_cm4.h
-.\np300_v1.0\app_sample_task.o: D:\Program Files\MDK5\ARM\ARMCC\Bin\..\include\stdint.h
+.\np300_v1.0\app_sample_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\np300_v1.0\app_sample_task.o: ../Drivers/CMSIS/Include/cmsis_version.h
 .\np300_v1.0\app_sample_task.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 .\np300_v1.0\app_sample_task.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -27,7 +26,7 @@
 .\np300_v1.0\app_sample_task.o: ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h
 .\np300_v1.0\app_sample_task.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h
 .\np300_v1.0\app_sample_task.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-.\np300_v1.0\app_sample_task.o: D:\Program Files\MDK5\ARM\ARMCC\Bin\..\include\stddef.h
+.\np300_v1.0\app_sample_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\np300_v1.0\app_sample_task.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc_ex.h
 .\np300_v1.0\app_sample_task.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h
 .\np300_v1.0\app_sample_task.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio_ex.h
@@ -61,6 +60,9 @@
 .\np300_v1.0\app_sample_task.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_tim.h
 .\np300_v1.0\app_sample_task.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_usart.h
 .\np300_v1.0\app_sample_task.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_gpio.h
+.\np300_v1.0\app_sample_task.o: ..\api\inc\os_types.h
+.\np300_v1.0\app_sample_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\np300_v1.0\app_sample_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\np300_v1.0\app_sample_task.o: ..\bsp\Inc\bsp_i2c.h
 .\np300_v1.0\app_sample_task.o: ..\app\inc\app_srv_sample.h
 .\np300_v1.0\app_sample_task.o: ..\app\inc\app_sample_task.h

@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp --branchpatch=sdcomp-29491-629360
+--cpu=Cortex-M4.fp.sp --branchpatch=sdcomp-29491-629360
 ".\np300_v1.0\main.o"
 ".\np300_v1.0\stm32l4xx_hal_msp.o"
 ".\np300_v1.0\stm32l4xx_hal_timebase_tim.o"

@@ -1,12 +1,12 @@
 .\np300_v1.0\board.o: ..\os\bsp\board.c
-.\np300_v1.0\board.o: D:\Program Files\MDK5\ARM\ARMCC\Bin\..\include\stdint.h
+.\np300_v1.0\board.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\np300_v1.0\board.o: ..\os\include\rthw.h
 .\np300_v1.0\board.o: ..\os\include\rtthread.h
 .\np300_v1.0\board.o: ..\os\bsp\rtconfig.h
 .\np300_v1.0\board.o: ..\bsp\Inc\RTE_Components.h
 .\np300_v1.0\board.o: ..\os\include\rtdebug.h
 .\np300_v1.0\board.o: ..\os\include\rtdef.h
-.\np300_v1.0\board.o: D:\Program Files\MDK5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\np300_v1.0\board.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 .\np300_v1.0\board.o: ..\os\include\rtservice.h
 .\np300_v1.0\board.o: ..\os\include\rtthread.h
 .\np300_v1.0\board.o: ..\os\include\rtm.h
@@ -14,7 +14,6 @@
 .\np300_v1.0\board.o: ..\app\inc\drv_uart.h
 .\np300_v1.0\board.o: ..\bsp\Inc\bsp_usart.h
 .\np300_v1.0\board.o: ..\common\inc\main.h
-.\np300_v1.0\board.o: D:\Program Files\MDK5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\np300_v1.0\board.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h
 .\np300_v1.0\board.o: ..\common\inc\stm32l4xx_hal_conf.h
 .\np300_v1.0\board.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h
@@ -29,7 +28,7 @@
 .\np300_v1.0\board.o: ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h
 .\np300_v1.0\board.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h
 .\np300_v1.0\board.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-.\np300_v1.0\board.o: D:\Program Files\MDK5\ARM\ARMCC\Bin\..\include\stddef.h
+.\np300_v1.0\board.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\np300_v1.0\board.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc_ex.h
 .\np300_v1.0\board.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h
 .\np300_v1.0\board.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio_ex.h
@@ -63,4 +62,7 @@
 .\np300_v1.0\board.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_tim.h
 .\np300_v1.0\board.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_usart.h
 .\np300_v1.0\board.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_gpio.h
+.\np300_v1.0\board.o: ..\api\inc\os_types.h
+.\np300_v1.0\board.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\np300_v1.0\board.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\np300_v1.0\board.o: ..\app\inc\ringbuffer.h

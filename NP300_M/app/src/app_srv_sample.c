@@ -80,7 +80,7 @@ bool app_srv_sample_data_get(app_srv_sample_data_t *pt_data)
   if (!pt_data){
       return false;
   }
-  rt_memcpy(pt_data, &sample_data, sizeof(sample_data));
+  memcpy(pt_data, &sample_data, sizeof(sample_data));
   return true;
 }
 
