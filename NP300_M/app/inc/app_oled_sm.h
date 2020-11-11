@@ -17,18 +17,20 @@
   ******************************************************************************
   */
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef _APP_POWER_SRV_H
-#define _APP_POWER_SRV_H
+#ifndef _APP_OLED_SM_H
+#define _APP_OLED_SM_H
 #ifdef __cplusplus
  extern "C" {
 #endif
+#include "os_types.h"
+#include "os_mgq.h"
 
-/* Includes ------------------------------------------------------------------*/
-#include "main.h"
+bool app_oled_sm_sta_init(void);
+bool app_oled_sm_sta_deinit(void);
+void app_oled_sm_sta_timeout(void);
+void app_oled_sm_sta_key(app_mgq_pt pt_msg);
 
 
-bool app_srv_power_init(void);
-void app_srv_state(void);
 
 #ifdef __cplusplus
 }

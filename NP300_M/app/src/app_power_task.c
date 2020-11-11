@@ -19,7 +19,7 @@
 #include <rtthread.h>
 
 #include "bsp_log.h"
-#include "app_srv_power.h"
+#include "app_power_srv.h"
 #include "app_power_task.h"
 
 #define APP_POWER_DEBUG                     (1)

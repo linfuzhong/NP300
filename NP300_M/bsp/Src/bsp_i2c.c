@@ -18,6 +18,7 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "main.h"
 #include <bsp_i2c.h>
 #include "bsp_log.h"
 

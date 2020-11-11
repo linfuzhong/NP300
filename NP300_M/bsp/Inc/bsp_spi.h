@@ -24,7 +24,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "os_types.h"
 
 typedef enum{
 	e_spi1_idx = 0,

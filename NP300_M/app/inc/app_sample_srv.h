@@ -17,20 +17,45 @@
   ******************************************************************************
   */
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef _APP_DRV_SAMPLE_H
-#define _APP_DRV_SAMPLE_H
+#ifndef _APP_SRV_SAMPLE_H
+#define _APP_SRV_SAMPLE_H
 #ifdef __cplusplus
  extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "os_types.h"
 
-bool app_drv_sample_shtc3(int16_t *pt_temp, int16_t *pt_humi);
+typedef struct 
+{
+	uint32_t sample_utime;
+	int16_t  sample_temp;
+	int16_t  sample_humi;
+}app_srv_sample_data_t;
 
+typedef enum{
+ e_sample_msg_start = 0,
+ e_sample_msg_timeout_1s,
+ e_sample_msg_end,
+}app_srv_sample_msgq_e;
+
+bool app_srv_sample_init(void);
+bool app_srv_sample_runing(void);
+
+bool app_srv_sample_send_msg(app_srv_sample_msgq_e e_sample_msg);
+
+bool app_srv_sample_data_get(app_srv_sample_data_t *pt_data);
 #ifdef __cplusplus
 }
 #endif
-#endif
+#endif /*__ i2c_H */
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

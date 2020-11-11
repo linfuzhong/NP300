@@ -18,8 +18,9 @@
   */
 #include <rtthread.h>
 #include "bsp_log.h"
-#include "app_srv_oled.h"
+#include "app_oled_srv.h"
 #include "app_oled_task.h"
+
 #define APP_DISPALY_DEBUG                     (1)
 #if  APP_DISPALY_DEBUG
 #define LOG_APP_DISPLAY(re, fmt, args...)			NP300_LOG(re, "display:"fmt, ##args)
@@ -41,10 +42,7 @@ static void app_srv_oled_entry(void *param)
       return;
   }		
 	while(1){
-      if ( rt_sem_take(sample_sm, RT_WAITING_FOREVER) == RT_EOK){
-          app_srv_display_state(e_display_bat);
-          app_srv_display_state(e_display_sample);    
-      }     
+			app_srv_display_runing();    
   }
 }
 

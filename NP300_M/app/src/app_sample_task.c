@@ -20,7 +20,7 @@
 
 #include "bsp_log.h"
 #include "bsp_i2c.h"
-#include <app_srv_sample.h>
+#include <app_sample_srv.h>
 #include "app_sample_task.h"
 
 #define APP_SAMPLE_DEBUG                     (1)
@@ -30,9 +30,9 @@
 #define LOG_APP_SAMPLE(re, fmt, args...)
 #endif
 
-#define SAMPLE_STACK_SIZE		     		(1024)
-#define SAMPLE_PRIORITY		     			(7)
-#define SAMPLE_TIMESLICE           	(50)
+#define SAMPLE_STACK_SIZE		     						 (1024)
+#define SAMPLE_PRIORITY		     							 (7)
+#define SAMPLE_TIMESLICE           					 (50)
 
 static void app_srv_sample_entry(void *param)
 { 
@@ -41,7 +41,7 @@ static void app_srv_sample_entry(void *param)
       return;
   }
 	while(1){
-      app_srv_sample_state();
+      app_srv_sample_runing();
 	}
 }
 

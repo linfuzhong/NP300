@@ -24,7 +24,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "os_types.h"
 
 bool app_srv_oled_tread(void);
 

@@ -18,6 +18,7 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "main.h"
 #include <bsp_usart.h>
 
 #define USART_ENABLE_IRQ                            (1)

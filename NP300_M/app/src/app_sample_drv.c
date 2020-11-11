@@ -11,7 +11,7 @@
   *
   ******************************************************************************
   */
-#include "app_drv_sample.h"
+#include "app_sample_drv.h"
 #include "bsp_i2c.h"
 #include <rtthread.h>
 

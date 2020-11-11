@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * File Name          : I2C.h
+  * File Name          : I2C.c
   * Description        : This file provides code for the configuration
   *                      of the I2C instances.
   ******************************************************************************
@@ -16,39 +16,28 @@
   *
   ******************************************************************************
   */
-/* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef _APP_SRV_SAMPLE_H
-#define _APP_SRV_SAMPLE_H
-#ifdef __cplusplus
- extern "C" {
-#endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
 
-typedef struct 
+#include <rtthread.h>
+
+#include "bsp_log.h"
+#include "app_power_drv.h"
+#include "app_power_srv.h"
+
+bool app_srv_power_init(void)
 {
-	uint32_t sample_utime;
-	int16_t  sample_temp;
-	int16_t  sample_humi;
-}app_srv_sample_data_t;
-
-bool app_srv_sample_init(void);
-bool app_srv_sample_state(void);
-
-bool app_srv_sample_data_get(app_srv_sample_data_t *pt_data);
-
-#ifdef __cplusplus
+	app_drv_power_init();                    /* 初始化电源检测和配置脚 */    
+	app_drv_power_led_init();
+  return true;
 }
-#endif
-#endif /*__ i2c_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
+void app_srv_state(void)
+{ 		
+  rt_thread_mdelay(500);
+  app_drv_power_set_led(true);
+  rt_thread_mdelay(500);
+  app_drv_power_set_led(false);
+}
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

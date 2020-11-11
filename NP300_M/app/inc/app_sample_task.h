@@ -24,9 +24,8 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
 
-
+#include "os_types.h"
 
 bool app_srv_sample_tread(void);
 

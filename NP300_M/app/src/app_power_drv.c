@@ -18,7 +18,9 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include <app_drv_power.h>
+#include <app_power_drv.h>
+#include <main.h>
+
 /* LDO电源使能脚 */
 #define LDO_ON_PIN									LL_GPIO_PIN_3
 #define LDO_ON_GPIO_PORT 						GPIOB

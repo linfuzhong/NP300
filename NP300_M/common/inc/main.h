@@ -48,7 +48,7 @@ extern "C" {
 #include "stm32l4xx_ll_tim.h"
 #include "stm32l4xx_ll_usart.h"
 #include "stm32l4xx_ll_gpio.h"
-#include "os_types.h"
+
 
 void Error_Handler(void);
 

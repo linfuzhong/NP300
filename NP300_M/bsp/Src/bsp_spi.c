@@ -18,6 +18,7 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "main.h"
 #include <bsp_spi.h>
 
 /**SPI1 GPIO Configuration

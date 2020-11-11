@@ -6,14 +6,11 @@
  */
 #ifndef __DRV_UART_H__
 #define __DRV_UART_H__
-#include "bsp_usart.h"
-#include "ringbuffer.h"
-#include <rtthread.h>
-#include <rthw.h>
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+	
+#include "os_types.h"
 
 bool finsh_uart_init(void);
 

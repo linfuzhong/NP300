@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * File Name          : USART.h
+  * File Name          : I2C.h
   * Description        : This file provides code for the configuration
-  *                      of the USART instances.
+  *                      of the I2C instances.
   ******************************************************************************
   * @attention
   *
@@ -17,8 +17,8 @@
   ******************************************************************************
   */
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __usart_H
-#define __usart_H
+#ifndef _APP_POWER_DRV_H
+#define _APP_POWER_DRV_H
 #ifdef __cplusplus
  extern "C" {
 #endif
@@ -26,37 +26,15 @@
 /* Includes ------------------------------------------------------------------*/
 #include "os_types.h"
 
-typedef enum
-{
-	e_uart1_idx = 0,
-	e_uart3_idx,
-	e_uart_max_idx,
-}bsp_uart_idx_e;
+void app_drv_power_init(void);
+void app_drv_power_ldo_on_set(bool type);
 
-typedef enum
-{
-	e_luart1_idx = 0,
-	e_luart_max_idx,
-}bsp_luart_idx_e;
-
-typedef enum
-{
-	e_uart_rate_9600 = 0,
-	e_uart_rate_38400,
-	e_uart_rate_115200,
-	e_uart_rate_max,
-}bsp_uart_baud_rate_e;
-
-bool bsp_uart_init(bsp_uart_idx_e idx, bsp_uart_baud_rate_e rate, func_cb_void back);
-bool bsp_uart_deinit(bsp_uart_idx_e idx);
-
-
-void MX_LPUART1_UART_Init(void);
-
+void app_drv_power_led_init(void);
+void app_drv_power_set_led(bool type);
 #ifdef __cplusplus
 }
 #endif
-#endif /*__ usart_H */
+#endif /*__ i2c_H */
 
 /**
   * @}

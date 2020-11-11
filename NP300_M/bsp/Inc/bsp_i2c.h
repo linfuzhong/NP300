@@ -24,7 +24,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "os_types.h"
 
 typedef enum{
 //	e_i2c1_idx = 0,

@@ -24,7 +24,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "os_types.h"
 
 #define NP300_LOG_ENABLE      (1)
 

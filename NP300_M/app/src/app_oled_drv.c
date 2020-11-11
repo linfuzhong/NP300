@@ -11,11 +11,12 @@
   *
   ******************************************************************************
   */
-#include "app_drv_oled.h"
-#include "app_drv_oled_font.h"
+#include "main.h"
+#include "app_oled_drv.h"
+#include "app_oled_drv_font.h"
 #include "bsp_spi.h"
 #include "rtthread.h"
-#include <stdio.h>
+
 //OLED的显存
 //存放格式如下.
 //[0]0 1 2 3 ... 127
@@ -461,7 +462,7 @@ bool app_drv_oled_show_bmp(app_drv_oled_bmp_e bmp, uint8_t x0, uint8_t y0, uint8
  * @param   none
  * @return  none
  */
-bool app_drv_oled_Init(void)
+bool app_drv_oled_init(void)
 {
 	/* 初始化OLED端口 */
 	app_drv_oled_port_init();
@@ -501,7 +502,7 @@ bool app_drv_oled_Init(void)
 	DRV_OLED_WRITE(CMD, 0xA4);//禁用显示开启 bit0: 1,开启; 0,关闭 (白屏/黑屏)(0xA4/0xA5)
 	DRV_OLED_WRITE(CMD, 0xA6);//不使用反向显示 (0xA6/A7)
 	DRV_OLED_WRITE(CMD, 0xAF);//开启显示
-	app_drv_oled_clear();		  		//清屏
+	app_drv_oled_clear();		  //清屏
 	return true;
 }
 

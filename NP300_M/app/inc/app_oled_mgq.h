@@ -17,26 +17,27 @@
   ******************************************************************************
   */
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef _APP_OLED_SRV_H
-#define _APP_OLED_SRV_H
+#ifndef _APP_OLED_MGQ_H
+#define _APP_OLED_MGQ_H
 #ifdef __cplusplus
  extern "C" {
 #endif
-
-/* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "os_types.h"
+#include "os_mgq.h"
 
 typedef enum
 {
-  e_display_bat = 0,
-  e_display_sample,
-  e_display_rtc,
-  e_dispaly_wifi,
-  e_display_max,
-}app_display_message_e;
+  e_oled_mgq_start = 0,
+	e_oled_mgq_timeout,
+	e_oled_mgq_key,
+	e_oled_mgq_end,
+	e_oled_mgq_max
+} app_oled_mgq_e;
 
-bool app_srv_dispaly_init(void);
-bool app_srv_display_state(app_display_message_e e_dispaly);
+bool app_oled_srv_init(void);
+
+bool app_oled_srv_sm_msg_proc(app_mgq_pt ptmsg);
+
 
 #ifdef __cplusplus
 }
