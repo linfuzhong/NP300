@@ -42,7 +42,7 @@ typedef enum{
 bool app_srv_sample_init(void);
 bool app_srv_sample_runing(void);
 
-bool app_srv_sample_send_msg(app_srv_sample_msgq_e e_sample_msg);
+bool app_srv_sample_send_msg_timeout(void);
 
 bool app_srv_sample_data_get(app_srv_sample_data_t *pt_data);
 #ifdef __cplusplus

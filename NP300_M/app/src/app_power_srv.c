@@ -35,7 +35,7 @@ bool app_srv_power_init(void)
 void app_srv_state(void)
 { 		
   rt_thread_mdelay(500);
-  app_drv_power_set_led(true);
+//  app_drv_power_set_led(true);
   rt_thread_mdelay(500);
   app_drv_power_set_led(false);
 }
