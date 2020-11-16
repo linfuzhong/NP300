@@ -23,10 +23,12 @@
 #include <app_oled_srv.h>
 #include <app_sample_srv.h>
 #include <app_oled_drv.h>
+#include <bsp_rtc.h>
 
 #define LOG_SM_DISPLAY(re, fmt, args...)			NP300_LOG(re, "oled sm:"fmt, ##args)
-#define DISPLAY_SAMPLE_UPDATE_TIME						(5)
 
+#define DISPLAY_SAMPLE_UPDATE_TIME						(5)
+#define DISPLAY_RTC_UPDATE_TIME								(30)
 typedef enum
 {
 	e_event_display_init,
@@ -65,33 +67,52 @@ static uint8 app_dispaly_sleep(app_oled_sm_evt_e evt, void* ptdata);
 
 static const app_oled_sm_sta_mach_t oeld_sm_sta_proc_array[e_state_display_max] = 
 {
-	{"data", 						app_display_sensor_data},
-	{"param", 					app_display_dev_param},
-	{"sleep", 					app_dispaly_sleep},
+	{"data", 								app_display_sensor_data},
+	{"param", 							app_display_dev_param},
+	{"sleep", 							app_dispaly_sleep},
 };
 
-/*显示温湿度状态函数*/
+/* 更新显示温湿度 */
 static bool app_display_updtate_sample(void)
 {	  
 	app_srv_sample_data_t sample_data = {0};
-	app_srv_sample_data_get(&sample_data);
-	app_drv_oled_show_char_string(e_char_1206, 10, 4, "%02d.%02d",sample_data.sample_temp / 100, sample_data.sample_temp % 100);
-	app_drv_oled_show_chinese(e_hz_1206, 40, 4, 9);
+	if ( app_srv_sample_data_get(&sample_data)){
+			 app_drv_oled_show_char_string(e_char_1206, 10, 3, "%02d.%02d",sample_data.sample_temp / 100, sample_data.sample_temp % 100);
+			 app_drv_oled_show_chinese(e_hz_1206, 40, 3, 9);					//℃
 
-	app_drv_oled_show_char_string(e_char_1206, 80, 4, "%02d.%02d",sample_data.sample_humi / 100, sample_data.sample_humi % 100);
-	app_drv_oled_show_char(e_char_1206, 110, 4,'%');
-	return true;
+			 app_drv_oled_show_char_string(e_char_1206, 80, 3, "%02d.%02d",sample_data.sample_humi / 100, sample_data.sample_humi % 100);
+			 app_drv_oled_show_char(e_char_1206, 110, 3,'%');				  //%
+			 return true;
+	} else {
+			 return false;
+	}
 }	
+
+/* 更新显示RTC时间 */
+static bool app_display_upddate_rtc(void)
+{
+	bsp_rtc_time_t rtc_time = {0};
+	if ( bsp_rtc_get_time(e_rtc_format_bin, &rtc_time)){
+		   app_drv_oled_show_char_string(e_char_1005, 35, 0, "%02d.%02d %02d:%02d",rtc_time.month, rtc_time.day,rtc_time.hour, rtc_time.minute);
+		   return true;
+	} else {
+			 return false;
+	}
+}	
+
 
 static uint8 app_display_sensor_data(app_oled_sm_evt_e evt, void* ptdata)
 {
 	app_oled_sm_sta_info_t *pt_sm = &oled_sm_info;
+	static uint16 sample_cnt = DISPLAY_SAMPLE_UPDATE_TIME;
+	static uint16 rtc_cnt    = DISPLAY_RTC_UPDATE_TIME;
 	uint8 u8Ret = e_state_display_sample_data;
 	uint8 key_type;
 	app_mgq_pt pt_msg = (app_mgq_pt)ptdata;
 	
 	key_type = pt_msg->pt_mgdata[0];
 
+	
 	switch (evt){
 	case e_event_display_init:
     pt_sm->time_out = 0;
@@ -99,10 +120,16 @@ static uint8 app_display_sensor_data(app_oled_sm_evt_e evt, void* ptdata)
 		break;
 
 	case e_event_display_timeout:
-		pt_sm->time_out++;
-	  if (pt_sm->time_out >= DISPLAY_SAMPLE_UPDATE_TIME){
-				pt_sm->time_out = 0;
+	  sample_cnt ++;
+		rtc_cnt ++;
+	  if (sample_cnt >= DISPLAY_SAMPLE_UPDATE_TIME){
+				sample_cnt = 0;
 				app_display_updtate_sample();
+			  
+		}
+		if (rtc_cnt >= DISPLAY_RTC_UPDATE_TIME){
+				rtc_cnt = 0;
+				app_display_upddate_rtc();
 		}
 
 		break;

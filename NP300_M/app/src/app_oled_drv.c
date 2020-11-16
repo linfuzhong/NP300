@@ -298,6 +298,15 @@ bool app_drv_oled_show_char(app_drv_oled_char_size_e size, uint8_t x, uint8_t y,
 	}
 	c = c_data - ' ';						//得到的行的偏移值
 	switch (size){
+	case e_char_1005:
+	{
+		x_rows = 10;
+		y_rows = 5;
+		asc_p = asc_1005;
+	
+	}
+		break;
+		
 	case e_char_1206:
 	{
 		x_rows = 12;
@@ -340,6 +349,9 @@ bool app_drv_oled_show_char_string(app_drv_oled_char_size_e size, uint8_t x, uin
     uint8_t *p = NULL;
     uint8_t x_offset;
     switch (size){
+		case e_char_1005:
+			x_offset = 5;
+		  break;	
     case e_char_1206:
     	x_offset = 6;
     	break;

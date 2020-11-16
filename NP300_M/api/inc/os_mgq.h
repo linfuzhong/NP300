@@ -27,7 +27,7 @@ extern "C" {
 #define SAMPLE_MSG_POOL_START							(0)
 #define SAMPLE_MSG_POOL_SIZE							(128)
 
-/*显示任务内存池的其实地址和大小*/
+/*显示任务内存池的起始地址和大小*/
 #define DISPLAY_MSG_POOL_START						(SAMPLE_MSG_POOL_START + SAMPLE_MSG_POOL_SIZE)
 #define DISPLAY_MSG_POOL_SIZE							(128)
 

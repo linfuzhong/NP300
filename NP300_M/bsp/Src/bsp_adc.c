@@ -56,17 +56,19 @@ bool bsp_adc_init(bsp_adc_idx_e idx)
   LL_ADC_REG_InitTypeDef   ADC_REG_InitStruct   = {0};
   LL_ADC_CommonInitTypeDef ADC_CommonInitStruct = {0};
   LL_GPIO_InitTypeDef      GPIO_InitStruct      = {0};	
-
+	uint8 i;
 	if (idx >= e_adc_max){
 			return false;
 	}
   LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_ADC);
 	
-	LL_AHB2_GRP1_EnableClock(adc_config_array[idx].adc_periphs);
-	GPIO_InitStruct.Pin 								= adc_config_array[idx].adc_pin;
-	GPIO_InitStruct.Mode 								= LL_GPIO_MODE_ANALOG;
-	GPIO_InitStruct.Pull 								= LL_GPIO_PULL_NO;
-	LL_GPIO_Init(adc_config_array[idx].adc_gpiox, &GPIO_InitStruct);
+	for	(i = 0; i < e_adc_max; i++){
+			 LL_AHB2_GRP1_EnableClock(adc_config_array[i].adc_periphs);
+			 GPIO_InitStruct.Pin 						= adc_config_array[i].adc_pin;
+			 GPIO_InitStruct.Mode 					= LL_GPIO_MODE_ANALOG;
+			 GPIO_InitStruct.Pull 					= LL_GPIO_PULL_NO;
+			 LL_GPIO_Init(adc_config_array[i].adc_gpiox, &GPIO_InitStruct);
+	}
 
   /** Common config
   */
@@ -103,14 +105,15 @@ bool bsp_adc_init(bsp_adc_idx_e idx)
   /** Configure Regular Channel
   */
 
-	LL_ADC_REG_SetSequencerRanks(ADC1, LL_ADC_REG_RANK_1, adc_config_array[idx].adc_channel);
-	LL_ADC_SetChannelSamplingTime(ADC1, adc_config_array[idx].adc_channel, LL_ADC_SAMPLINGTIME_2CYCLES_5);
-	LL_ADC_SetChannelSingleDiff(ADC1, adc_config_array[idx].adc_channel, LL_ADC_SINGLE_ENDED);
+	for	(i = 0; i < e_adc_max; i++){
+		   LL_ADC_REG_SetSequencerRanks(ADC1, LL_ADC_REG_RANK_1, adc_config_array[idx].adc_channel);
+		   LL_ADC_SetChannelSamplingTime(ADC1, adc_config_array[idx].adc_channel, LL_ADC_SAMPLINGTIME_2CYCLES_5);
+		   LL_ADC_SetChannelSingleDiff(ADC1, adc_config_array[idx].adc_channel, LL_ADC_SINGLE_ENDED);
+	}
 	return true;
 }
 
-/* USER CODE BEGIN 1 */
 
-/* USER CODE END 1 */
+
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

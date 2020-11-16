@@ -26,13 +26,14 @@
 /* Includes ------------------------------------------------------------------*/
 #include "os_types.h"
 typedef enum{
-	e_char_1206  = 0,
-	e_char_1608  = 1,
+	e_char_1005  = 0,
+	e_char_1206,
+	e_char_1608,
 }app_drv_oled_char_size_e;
 
 typedef enum{
 	e_hz_1206   = 0,
-	e_hz_1608   = 1,
+	e_hz_1608,
 }app_drv_oled_hz_size_e;
 
 typedef enum{

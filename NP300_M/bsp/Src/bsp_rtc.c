@@ -30,9 +30,9 @@
 void bsp_rtc_init(void)
 {
   LL_RTC_InitTypeDef RTC_InitStruct = {0};
-//  LL_RTC_TimeTypeDef RTC_TimeStruct = {0};
-//  LL_RTC_DateTypeDef RTC_DateStruct = {0};
-//	LL_PWR_EnableBkUpAccess();
+  LL_RTC_TimeTypeDef RTC_TimeStruct = {0};
+  LL_RTC_DateTypeDef RTC_DateStruct = {0};
+	LL_PWR_EnableBkUpAccess();
   /* Peripheral clock enable */
   LL_RCC_EnableRTC();										
   /** Initialize RTC and set the Time and Date */
@@ -48,20 +48,20 @@ void bsp_rtc_init(void)
   RTC_InitStruct.SynchPrescaler 	 	 = 0xFF;
   LL_RTC_Init(RTC, &RTC_InitStruct);
 	
-//	/* 2020-01-01 00:00:00 周三 */
-//  RTC_TimeStruct.TimeFormat  = LL_RTC_TIME_FORMAT_AM_OR_24;
-//  RTC_TimeStruct.Hours   		 = 0x00;
-//  RTC_TimeStruct.Minutes 		 = 0x00;
-//  RTC_TimeStruct.Seconds 		 = 0x00;
-//  LL_RTC_TIME_Init(RTC, LL_RTC_FORMAT_BCD, &RTC_TimeStruct);
+	/* 2020-01-01 00:00:00 周三 */
+  RTC_TimeStruct.TimeFormat  = LL_RTC_TIME_FORMAT_AM_OR_24;
+  RTC_TimeStruct.Hours   		 = 0x15;
+  RTC_TimeStruct.Minutes 		 = 0x19;
+  RTC_TimeStruct.Seconds 		 = 0x20;
+  LL_RTC_TIME_Init(RTC, LL_RTC_FORMAT_BCD, &RTC_TimeStruct);
 
-//  RTC_DateStruct.WeekDay 		 = LL_RTC_WEEKDAY_WEDNESDAY;
-//  RTC_DateStruct.Day     		 = 0x01;
-//  RTC_DateStruct.Month   		 = LL_RTC_MONTH_JANUARY;
-//  RTC_DateStruct.Year    		 = 0x20;
-//  LL_RTC_DATE_Init(RTC, LL_RTC_FORMAT_BCD, &RTC_DateStruct);
-//	
-//	LL_PWR_DisableBkUpAccess();
+  RTC_DateStruct.WeekDay 		 = LL_RTC_WEEKDAY_FRIDAY;
+  RTC_DateStruct.Day     		 = 0x13;
+  RTC_DateStruct.Month   		 = LL_RTC_MONTH_NOVEMBER;
+  RTC_DateStruct.Year    		 = 0x20;
+  LL_RTC_DATE_Init(RTC, LL_RTC_FORMAT_BCD, &RTC_DateStruct);
+	
+	LL_PWR_DisableBkUpAccess();
 }
 
 /**
@@ -144,9 +144,9 @@ bool bsp_rtc_get_time(bsp_rtc_format_e time_type, bsp_rtc_time_t *pt_time)
 	case e_rtc_format_bcd:
 	{		
 		time = LL_RTC_TIME_Get(RTC);
-		pt_time->second  		= (time >> 16) & 0xFF;
+		pt_time->hour  		  = (time >> 16) & 0xFF;
 		pt_time->minute  		= (time >> 8)  & 0xFF;
-		pt_time->hour    		=  time & 0xFF;
+		pt_time->second    	=  time & 0xFF;
 		
 		date = LL_RTC_DATE_Get(RTC);
 		pt_time->week			 	= (date >> 24) & 0xFF;
@@ -159,9 +159,9 @@ bool bsp_rtc_get_time(bsp_rtc_format_e time_type, bsp_rtc_time_t *pt_time)
 	case e_rtc_format_bin:
 	{
 		time = LL_RTC_TIME_Get(RTC);
-		pt_time->second  		= BCD2BIN( (time >> 16) & 0xFF );
+		pt_time->hour  		  = BCD2BIN( (time >> 16) & 0xFF );
 		pt_time->minute  		= BCD2BIN( (time >> 8)  & 0xFF );
-		pt_time->hour    		= BCD2BIN(  time & 0xFF );
+		pt_time->second    	= BCD2BIN(  time & 0xFF );
 		
 		date = LL_RTC_DATE_Get(RTC);
 		pt_time->week			 	= BCD2BIN( (date >> 24) & 0xFF );

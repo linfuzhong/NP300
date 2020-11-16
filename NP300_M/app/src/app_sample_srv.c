@@ -52,7 +52,7 @@ bool app_srv_sample_init(void)
 	}
   
 	/* 初始化采集消息队列 */
-	if (!os_mq_init(&sample_mq,"smp_mqt", e_mgs_pool_sample)){
+	if (!os_mq_init(&sample_mq, "smp_mqt", e_mgs_pool_sample)){
 			return false;	
 	}
 		 

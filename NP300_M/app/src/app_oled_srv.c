@@ -82,7 +82,7 @@ bool app_srv_display_send_msg_key(uint8 key_value)
 { 
 	rt_mq_t  mq = &display_mq;
 	app_message_t oled_mgq = {0};
-	if ( os_mq_get_mem(&oled_mgq, e_oled_mgq_key, 1) ){
+	if ( os_mq_get_mem(&oled_mgq, e_oled_mgq_key, sizeof(key_value)) ){
 		  oled_mgq.pt_mgdata[0] =  key_value;
 			return ( os_mq_send_with_data(mq, &oled_mgq, false) );
 	} else {
