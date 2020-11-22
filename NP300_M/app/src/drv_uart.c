@@ -39,10 +39,10 @@ void rt_hw_console_output(const char *str)
  ***************************************************/
 char rt_hw_console_getchar(void)
 {
-	char ch = 0;
-	/* 从 ringbuffer 中拿出数据 */
-	while (rt_ringbuffer_getchar(&uart_rxcb, (uint8_t *)&ch) != 1){
-				 rt_sem_take(&shell_rx_sem, RT_WAITING_FOREVER);  //接收信号量
+	char ch = -1;
+	if ( RT_EOK == rt_sem_take(&shell_rx_sem, RT_WAITING_FOREVER) ){
+			 /* 从 ringbuffer 中拿出数据 */
+			 rt_ringbuffer_getchar(&uart_rxcb, (uint8_t *)&ch);
 	}
 	return ((char)ch);
 }
@@ -57,8 +57,10 @@ static void finsh_uart_callback(void)
 
 	if (LL_USART_IsActiveFlag_RXNE(USART1)){
 			/* 放入数据到ringbuffer */
-			rt_ringbuffer_putchar(&uart_rxcb, (uint8_t)LL_USART_ReceiveData8(USART1));
-			rt_sem_release(&shell_rx_sem); 		      	 	//释放信号量
+			if (rt_ringbuffer_putchar(&uart_rxcb, (uint8_t)LL_USART_ReceiveData8(USART1))){
+					rt_sem_release(&shell_rx_sem); 		      	 	//释放信号量
+			}
+			
 	}
 
 	/* leave interrupt */

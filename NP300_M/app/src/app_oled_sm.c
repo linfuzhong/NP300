@@ -104,7 +104,7 @@ static bool app_display_upddate_rtc(void)
 static uint8 app_display_sensor_data(app_oled_sm_evt_e evt, void* ptdata)
 {
 	app_oled_sm_sta_info_t *pt_sm = &oled_sm_info;
-	static uint16 sample_cnt = DISPLAY_SAMPLE_UPDATE_TIME;
+	static uint16 sample_cnt = 3;
 	static uint16 rtc_cnt    = DISPLAY_RTC_UPDATE_TIME;
 	uint8 u8Ret = e_state_display_sample_data;
 	uint8 key_type;

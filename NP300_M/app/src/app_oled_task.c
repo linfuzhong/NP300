@@ -28,9 +28,9 @@
 #define LOG_APP_DISPLAY(re, fmt, args...)
 #endif
 
-#define OLED_STACK_SIZE		     		(640)
-#define OLED_PRIORITY		     			(8)
-#define OLED_TIMESLICE           	(50)
+#define OLED_STACK_SIZE		     		           (768)
+#define OLED_PRIORITY		     			           (8)
+#define OLED_TIMESLICE           	           (50)
 
 extern rt_sem_t sample_sm;
 

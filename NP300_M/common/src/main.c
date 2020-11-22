@@ -42,7 +42,6 @@ static void app_thread_init(void)
 	app_srv_power_led_tread();
 	app_srv_sample_tread();
 	app_srv_oled_tread();
-	bsp_log_output(e_log_begin, "app thread start init ok");
 }
 
 /**
